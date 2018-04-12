@@ -1,0 +1,16 @@
+{
+	"name": "enduro_mirror",
+	"version": "1.0.0",
+	"description": "Personal portfolio theme for enduro.js",
+	"main": "assets/vendor/enduro/index.js",
+	"scripts": {
+		"postinstall": "node_modules/bower/bin/bower install --silent",
+		"start": "node_modules/.bin/enduro start"
+	},
+	"author": "Martin Gottweis",
+	"license": "ISC",
+	"dependencies": {
+		"bower": "^1.8.4",
+		"enduro": "1.4.23"
+	}
+}
