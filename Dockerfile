@@ -11,6 +11,7 @@ RUN apt-get update \
     && command -v nvm \
     && nvm use node \
     && cd coldpurse \
+    && npm cache verify \
     && npm install enduro -g \
     && enduro dev 
 
