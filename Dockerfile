@@ -4,7 +4,7 @@ RUN  apt-get update \
     && git clone https://github.com/gaozheyuan13/coldpurse.git \
     && curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash \
     && command -v nvm \
-    && nvm use node
+    && nvm use node \
     && cd coldpurse \
     && npm install enduro -g \
     && enduro dev 
