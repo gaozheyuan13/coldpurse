@@ -1,21 +1,14 @@
-FROM ubuntu
-RUN apt-get update \
-    && apt-get install -y git curl sudo \
-    && useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo \
-    && sudo -i \
-    && git clone https://github.com/gaozheyuan13/coldpurse.git \
-    && curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash \
-    && export NVM_DIR="$HOME/.nvm" \
-    && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" \
-    && nvm install stable \
-    && command -v nvm \
-    && nvm use node \
-    && cd coldpurse \
-    && npm cache verify \
-    && npm install enduro -g \
-    && enduro dev 
+FROM node:latest
+MAINTAINER KaMeHb-UA "marlock@etlgr.com"
 
-EXPOSE 3000 5000  
+# Installing keystone
+RUN chmod 777 /usr/local/lib/node_modules /usr/local/bin
+RUN useradd -m -d /cms cms
+RUN echo "npm install enduro -g" | su - cms
+RUN chmod 755 /usr/local/lib/node_modules /usr/local/bin
+RUN echo "cd /cms && enduro create cms" | su - cms
+RUN mkdir /cms1 && mv -v /cms/cms/* /cms1/ && rm -rf /cms/cms && mv -v /cms1/* /cms && rm -rf /cms1
+# Assigning port
+EXPOSE 3000
 
-USER docker
-CMD /bin/bash
+CMD ["bash", "-c", "echo 'cd /cms && enduro dev' | su -p - cms"]
