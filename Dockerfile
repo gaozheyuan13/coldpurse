@@ -2,6 +2,7 @@ FROM ubuntu
 RUN apt-get update \
     && apt-get install -y git curl sudo \
     && useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo \
+    && sudo -i \
     && git clone https://github.com/gaozheyuan13/coldpurse.git \
     && curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash \
     && export NVM_DIR="$HOME/.nvm" \
