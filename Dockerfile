@@ -1,5 +1,5 @@
 FROM ubuntu
-RUN    git clone https://github.com/gaozheyuan13/coldpurse.git \
+RUN  apt-get update \
     && cd coldpurse \
     && enduro dev 
 
