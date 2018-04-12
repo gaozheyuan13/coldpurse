@@ -11,7 +11,7 @@ RUN apt-get update \
     && command -v nvm \
     && nvm use node \
     && cd coldpurse \
-    && sudo npm install enduro -g \
+    && npm install enduro -g \
     && enduro dev 
 
 EXPOSE 3000 5000  
