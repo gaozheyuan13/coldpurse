@@ -6,8 +6,9 @@ ENV         ENDURO_VERSION 1.4.16
 
 RUN         \
             set -xe ;\
-            apk add --no-cache --virtual git .build-deps
-
+            apk add --no-cache --virtual git .build-deps; \
+            cd coldpurse \
+            
 RUN         \
             set -xe ;\
             npm install -g enduro@$ENDURO_VERSION
