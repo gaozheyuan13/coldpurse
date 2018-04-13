@@ -12,13 +12,7 @@ RUN         \
             set -xe ;\
             npm install -g enduro@$ENDURO_VERSION
 
-RUN         \
-            set -xe ;\
-            mkdir -vp /opt/app
-
-WORKDIR     /opt/app
-
 EXPOSE      3000
 EXPOSE      5000
 
-CMD         ["enduro"]
+CMD         ["enduro" "dev"]
