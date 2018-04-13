@@ -15,4 +15,4 @@ RUN         \
 EXPOSE      3000
 EXPOSE      5000
 
-CMD         ["enduro" "dev"]
+CMD         ["enduro"]
