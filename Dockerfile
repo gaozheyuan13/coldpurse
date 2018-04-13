@@ -6,7 +6,7 @@ ENV         ENDURO_VERSION 1.4.16
 
 RUN         \
             set -xe ;\
-            apk add --no-cache --virtual git .build-deps; \
+            apk add --no-cache --virtual git .build-deps; 
             
 RUN         \
             set -xe ;\
