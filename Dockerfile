@@ -7,7 +7,6 @@ ENV         ENDURO_VERSION 1.4.16
 RUN         \
             set -xe ;\
             apk add --no-cache --virtual git .build-deps; \
-            cd coldpurse
             
 RUN         \
             set -xe ;\
@@ -16,4 +15,4 @@ RUN         \
 EXPOSE      3000
 EXPOSE      5000
 
-CMD         ["enduro"]
+CMD         ["enduro","dev"]
